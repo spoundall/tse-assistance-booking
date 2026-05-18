@@ -7,8 +7,8 @@ This is a local TSE-branded copy of the Apex assistance booking launcher. It was
 - Displays a Travel Support Europe branded booking launcher.
 - Uses the official TSE logo at `assets/tse-logo.svg`.
 - Uses a local TSE site image at `assets/tse-splash.jpeg`.
-- Provides multilingual landing-page support for a broad European language set.
-- Uses English fallback text inside the Apex booking form for languages that do not yet have full field-by-field translations.
+- Provides full booking-flow translation for English, French, German, Austrian German, Dutch, and Swedish.
+- Hides languages that do not yet have full booking-form translation coverage.
 - Opens the Apex booking page through the local private server.
 - Keeps Apex credentials in server environment variables, not browser JavaScript.
 

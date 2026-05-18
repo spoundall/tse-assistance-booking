@@ -1123,8 +1123,12 @@ function injectBookingTranslator(html) {
     }
   };
 
+  var fullyTranslatedLanguages = ["en", "de", "de-AT", "fr", "nl", "sv"];
   var languageCookie = document.cookie.match(/(?:^|; )tse-language=([^;]+)/);
   var language = languageCookie ? decodeURIComponent(languageCookie[1]) : "en";
+  if (fullyTranslatedLanguages.indexOf(language) === -1) {
+    language = "en";
+  }
   var baseLanguage = String(language || "en").split("-")[0];
   var dictionary = dictionaries[language] || dictionaries[baseLanguage] || dictionaries.en;
   var headingTranslations = {
