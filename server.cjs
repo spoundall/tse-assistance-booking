@@ -1856,8 +1856,8 @@ function injectBookingTranslator(html) {
     document.body.appendChild(link);
   }
 
-  relabelFormLabel("Auth. Code:", "TSE Case No.");
-  markFormRowsByLabel(["TSE Case No."], "tse-keep-case-number");
+  relabelFormLabel("Auth. Code:", "TSE Case No");
+  markFormRowsByLabel(["TSE Case No"], "tse-keep-case-number");
   hideFormRowsByLabel(["Order No:", "Fleet No:"]);
 
   walk(document.body);
