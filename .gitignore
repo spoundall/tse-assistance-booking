@@ -1,0 +1,8 @@
+node_modules/
+.env
+.DS_Store
+Thumbs.db
+npm-debug.log*
+roadsurfer-render-app.zip
+uk-joblist.html
+uk-last-validation.html

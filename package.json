@@ -1,0 +1,13 @@
+{
+  "name": "tse-assistance-booking",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Travel Support Europe assistance booking launcher",
+  "main": "server.cjs",
+  "scripts": {
+    "start": "node server.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
