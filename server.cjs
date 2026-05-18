@@ -1127,6 +1127,325 @@ function injectBookingTranslator(html) {
   var language = languageCookie ? decodeURIComponent(languageCookie[1]) : "en";
   var baseLanguage = String(language || "en").split("-")[0];
   var dictionary = dictionaries[language] || dictionaries[baseLanguage] || dictionaries.en;
+  var headingTranslations = {
+    en: {
+      "New Booking Request": "New booking request",
+      "Job Details": "Job details",
+      "Send images": "Send images",
+      "Vehicle Details": "Vehicle details",
+      "Recovery Information": "Recovery information",
+      "Owner Details": "Driver details",
+      "Notes": "Notes"
+    },
+    sq: {
+      "New Booking Request": "Kërkesë e re për asistencë",
+      "Job Details": "Detajet e rastit",
+      "Send images": "Dërgo fotografi",
+      "Vehicle Details": "Detajet e automjetit",
+      "Recovery Information": "Informacioni i rikuperimit",
+      "Owner Details": "Detajet e drejtuesit",
+      "Notes": "Shënime"
+    },
+    bs: {
+      "New Booking Request": "Novi zahtjev za pomoć",
+      "Job Details": "Detalji slučaja",
+      "Send images": "Pošalji slike",
+      "Vehicle Details": "Podaci o vozilu",
+      "Recovery Information": "Informacije o pomoći",
+      "Owner Details": "Podaci o vozaču",
+      "Notes": "Napomene"
+    },
+    bg: {
+      "New Booking Request": "Нова заявка за помощ",
+      "Job Details": "Детайли за случая",
+      "Send images": "Изпращане на снимки",
+      "Vehicle Details": "Данни за автомобила",
+      "Recovery Information": "Информация за репатриране",
+      "Owner Details": "Данни за водача",
+      "Notes": "Бележки"
+    },
+    ca: {
+      "New Booking Request": "Nova sol·licitud d'assistència",
+      "Job Details": "Detalls del cas",
+      "Send images": "Envia imatges",
+      "Vehicle Details": "Dades del vehicle",
+      "Recovery Information": "Informació de recuperació",
+      "Owner Details": "Dades del conductor",
+      "Notes": "Notes"
+    },
+    hr: {
+      "New Booking Request": "Novi zahtjev za pomoć",
+      "Job Details": "Detalji slučaja",
+      "Send images": "Pošalji slike",
+      "Vehicle Details": "Podaci o vozilu",
+      "Recovery Information": "Informacije o pomoći",
+      "Owner Details": "Podaci o vozaču",
+      "Notes": "Napomene"
+    },
+    cs: {
+      "New Booking Request": "Nová žádost o asistenci",
+      "Job Details": "Podrobnosti případu",
+      "Send images": "Odeslat obrázky",
+      "Vehicle Details": "Údaje o vozidle",
+      "Recovery Information": "Informace o odtahu",
+      "Owner Details": "Údaje o řidiči",
+      "Notes": "Poznámky"
+    },
+    da: {
+      "New Booking Request": "Ny anmodning om hjælp",
+      "Job Details": "Sagsoplysninger",
+      "Send images": "Send billeder",
+      "Vehicle Details": "Køretøjsoplysninger",
+      "Recovery Information": "Bjærgningsoplysninger",
+      "Owner Details": "Føreroplysninger",
+      "Notes": "Noter"
+    },
+    nl: {
+      "New Booking Request": "Nieuwe hulpaanvraag",
+      "Job Details": "Opdrachtgegevens",
+      "Send images": "Afbeeldingen verzenden",
+      "Vehicle Details": "Voertuiggegevens",
+      "Recovery Information": "Hulpinformatie",
+      "Owner Details": "Bestuurdersgegevens",
+      "Notes": "Notities"
+    },
+    et: {
+      "New Booking Request": "Uus abipalve",
+      "Job Details": "Juhtumi andmed",
+      "Send images": "Saada pildid",
+      "Vehicle Details": "Sõiduki andmed",
+      "Recovery Information": "Taastamise teave",
+      "Owner Details": "Juhi andmed",
+      "Notes": "Märkused"
+    },
+    fi: {
+      "New Booking Request": "Uusi avunpyyntö",
+      "Job Details": "Tapauksen tiedot",
+      "Send images": "Lähetä kuvat",
+      "Vehicle Details": "Ajoneuvon tiedot",
+      "Recovery Information": "Kuljetustiedot",
+      "Owner Details": "Kuljettajan tiedot",
+      "Notes": "Muistiinpanot"
+    },
+    de: {
+      "New Booking Request": "Neue Hilfsanfrage",
+      "Job Details": "Auftragsdetails",
+      "Send images": "Bilder senden",
+      "Vehicle Details": "Fahrzeugdaten",
+      "Recovery Information": "Hilfsinformationen",
+      "Owner Details": "Fahrerdaten",
+      "Notes": "Notizen"
+    },
+    "de-AT": {
+      "New Booking Request": "Neue Hilfsanfrage",
+      "Job Details": "Auftragsdetails",
+      "Send images": "Bilder senden",
+      "Vehicle Details": "Fahrzeugdaten",
+      "Recovery Information": "Hilfsinformationen",
+      "Owner Details": "Fahrerdaten",
+      "Notes": "Notizen"
+    },
+    fr: {
+      "New Booking Request": "Nouvelle demande d'assistance",
+      "Job Details": "Détails de la demande",
+      "Send images": "Envoyer des images",
+      "Vehicle Details": "Détails du véhicule",
+      "Recovery Information": "Informations d'assistance",
+      "Owner Details": "Détails du conducteur",
+      "Notes": "Notes"
+    },
+    el: {
+      "New Booking Request": "Νέο αίτημα βοήθειας",
+      "Job Details": "Στοιχεία περιστατικού",
+      "Send images": "Αποστολή εικόνων",
+      "Vehicle Details": "Στοιχεία οχήματος",
+      "Recovery Information": "Πληροφορίες οδικής βοήθειας",
+      "Owner Details": "Στοιχεία οδηγού",
+      "Notes": "Σημειώσεις"
+    },
+    hu: {
+      "New Booking Request": "Új segítségkérés",
+      "Job Details": "Eset adatai",
+      "Send images": "Képek küldése",
+      "Vehicle Details": "Jármű adatai",
+      "Recovery Information": "Mentési információk",
+      "Owner Details": "Vezető adatai",
+      "Notes": "Megjegyzések"
+    },
+    is: {
+      "New Booking Request": "Ný aðstoðarbeiðni",
+      "Job Details": "Upplýsingar um mál",
+      "Send images": "Senda myndir",
+      "Vehicle Details": "Upplýsingar um ökutæki",
+      "Recovery Information": "Upplýsingar um björgun",
+      "Owner Details": "Upplýsingar um ökumann",
+      "Notes": "Athugasemdir"
+    },
+    ga: {
+      "New Booking Request": "Iarratas cabhrach nua",
+      "Job Details": "Sonraí an cháis",
+      "Send images": "Seol íomhánna",
+      "Vehicle Details": "Sonraí na feithicle",
+      "Recovery Information": "Eolas tarrthála",
+      "Owner Details": "Sonraí an tiománaí",
+      "Notes": "Nótaí"
+    },
+    it: {
+      "New Booking Request": "Nuova richiesta di assistenza",
+      "Job Details": "Dettagli del caso",
+      "Send images": "Invia immagini",
+      "Vehicle Details": "Dettagli del veicolo",
+      "Recovery Information": "Informazioni di recupero",
+      "Owner Details": "Dettagli del conducente",
+      "Notes": "Note"
+    },
+    lv: {
+      "New Booking Request": "Jauns palīdzības pieprasījums",
+      "Job Details": "Gadījuma informācija",
+      "Send images": "Sūtīt attēlus",
+      "Vehicle Details": "Transportlīdzekļa dati",
+      "Recovery Information": "Evakuācijas informācija",
+      "Owner Details": "Vadītāja dati",
+      "Notes": "Piezīmes"
+    },
+    lt: {
+      "New Booking Request": "Naujas pagalbos prašymas",
+      "Job Details": "Atvejo duomenys",
+      "Send images": "Siųsti nuotraukas",
+      "Vehicle Details": "Transporto priemonės duomenys",
+      "Recovery Information": "Evakuacijos informacija",
+      "Owner Details": "Vairuotojo duomenys",
+      "Notes": "Pastabos"
+    },
+    mk: {
+      "New Booking Request": "Ново барање за помош",
+      "Job Details": "Детали за случајот",
+      "Send images": "Испрати слики",
+      "Vehicle Details": "Детали за возилото",
+      "Recovery Information": "Информации за влечење",
+      "Owner Details": "Детали за возачот",
+      "Notes": "Белешки"
+    },
+    mt: {
+      "New Booking Request": "Talba ġdida għall-għajnuna",
+      "Job Details": "Dettalji tal-każ",
+      "Send images": "Ibgħat stampi",
+      "Vehicle Details": "Dettalji tal-vettura",
+      "Recovery Information": "Informazzjoni dwar l-irkupru",
+      "Owner Details": "Dettalji tas-sewwieq",
+      "Notes": "Noti"
+    },
+    no: {
+      "New Booking Request": "Ny forespørsel om hjelp",
+      "Job Details": "Saksdetaljer",
+      "Send images": "Send bilder",
+      "Vehicle Details": "Kjøretøydetaljer",
+      "Recovery Information": "Bergingsinformasjon",
+      "Owner Details": "Førerdetaljer",
+      "Notes": "Notater"
+    },
+    pl: {
+      "New Booking Request": "Nowe zgłoszenie pomocy",
+      "Job Details": "Szczegóły sprawy",
+      "Send images": "Wyślij zdjęcia",
+      "Vehicle Details": "Dane pojazdu",
+      "Recovery Information": "Informacje o holowaniu",
+      "Owner Details": "Dane kierowcy",
+      "Notes": "Notatki"
+    },
+    pt: {
+      "New Booking Request": "Novo pedido de assistência",
+      "Job Details": "Detalhes do caso",
+      "Send images": "Enviar imagens",
+      "Vehicle Details": "Detalhes do veículo",
+      "Recovery Information": "Informações de recuperação",
+      "Owner Details": "Detalhes do condutor",
+      "Notes": "Notas"
+    },
+    ro: {
+      "New Booking Request": "Cerere nouă de asistență",
+      "Job Details": "Detalii caz",
+      "Send images": "Trimite imagini",
+      "Vehicle Details": "Detalii vehicul",
+      "Recovery Information": "Informații de recuperare",
+      "Owner Details": "Detalii șofer",
+      "Notes": "Note"
+    },
+    ru: {
+      "New Booking Request": "Новая заявка на помощь",
+      "Job Details": "Детали случая",
+      "Send images": "Отправить изображения",
+      "Vehicle Details": "Данные автомобиля",
+      "Recovery Information": "Информация об эвакуации",
+      "Owner Details": "Данные водителя",
+      "Notes": "Заметки"
+    },
+    sr: {
+      "New Booking Request": "Нови захтев за помоћ",
+      "Job Details": "Детаљи случаја",
+      "Send images": "Пошаљи слике",
+      "Vehicle Details": "Подаци о возилу",
+      "Recovery Information": "Информације о опоравку",
+      "Owner Details": "Подаци о возачу",
+      "Notes": "Напомене"
+    },
+    sk: {
+      "New Booking Request": "Nová žiadosť o pomoc",
+      "Job Details": "Podrobnosti prípadu",
+      "Send images": "Odoslať obrázky",
+      "Vehicle Details": "Údaje o vozidle",
+      "Recovery Information": "Informácie o odťahu",
+      "Owner Details": "Údaje o vodičovi",
+      "Notes": "Poznámky"
+    },
+    sl: {
+      "New Booking Request": "Nova zahteva za pomoč",
+      "Job Details": "Podrobnosti primera",
+      "Send images": "Pošlji slike",
+      "Vehicle Details": "Podatki o vozilu",
+      "Recovery Information": "Informacije o reševanju",
+      "Owner Details": "Podatki o vozniku",
+      "Notes": "Opombe"
+    },
+    es: {
+      "New Booking Request": "Nueva solicitud de asistencia",
+      "Job Details": "Detalles del caso",
+      "Send images": "Enviar imágenes",
+      "Vehicle Details": "Datos del vehículo",
+      "Recovery Information": "Información de recuperación",
+      "Owner Details": "Datos del conductor",
+      "Notes": "Notas"
+    },
+    sv: {
+      "New Booking Request": "Ny hjälpförfrågan",
+      "Job Details": "Uppdragsdetaljer",
+      "Send images": "Skicka bilder",
+      "Vehicle Details": "Fordonsuppgifter",
+      "Recovery Information": "Hjälpinformation",
+      "Owner Details": "Föraruppgifter",
+      "Notes": "Anteckningar"
+    },
+    tr: {
+      "New Booking Request": "Yeni yardım talebi",
+      "Job Details": "Vaka detayları",
+      "Send images": "Resim gönder",
+      "Vehicle Details": "Araç bilgileri",
+      "Recovery Information": "Kurtarma bilgileri",
+      "Owner Details": "Sürücü bilgileri",
+      "Notes": "Notlar"
+    },
+    uk: {
+      "New Booking Request": "Нова заявка на допомогу",
+      "Job Details": "Деталі випадку",
+      "Send images": "Надіслати зображення",
+      "Vehicle Details": "Дані автомобіля",
+      "Recovery Information": "Інформація про евакуацію",
+      "Owner Details": "Дані водія",
+      "Notes": "Нотатки"
+    }
+  };
+  var headingText = headingTranslations[language] || headingTranslations[baseLanguage] || headingTranslations.en;
+  dictionary = Object.assign({}, dictionary, headingText);
   var locationTranslations = {
     en: {
       button: "Use my location",
