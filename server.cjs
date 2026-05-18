@@ -766,8 +766,13 @@ function injectBookingTranslator(html) {
     display: none !important;
   }
 
-  .tse-job-details-images-only tr.tse-keep-send-images {
+  .tse-job-details-images-only tr.tse-keep-send-images,
+  .tse-job-details-images-only tr.tse-keep-case-number {
     display: table-row !important;
+  }
+
+  .tse-job-details-images-only tr.tse-keep-case-number .gl {
+    display: table-cell !important;
   }
 
   .tse-job-details-images-only table {
@@ -1640,6 +1645,24 @@ function injectBookingTranslator(html) {
     });
   }
 
+  function markFormRowsByLabel(labels, className) {
+    var matchedLabels = labels.map(function (label) {
+      return clean(label).toLowerCase();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll("td, th, label, span"), function (element) {
+      var text = clean(element.textContent).toLowerCase();
+      if (matchedLabels.indexOf(text) === -1) {
+        return;
+      }
+
+      var row = element.closest("tr");
+      if (row) {
+        row.classList.add(className);
+      }
+    });
+  }
+
   function defaultConfiguredAccount() {
     if (!defaultAccountName) {
       return;
@@ -1834,6 +1857,7 @@ function injectBookingTranslator(html) {
   }
 
   relabelFormLabel("Auth. Code:", "TSE Case No.");
+  markFormRowsByLabel(["TSE Case No."], "tse-keep-case-number");
   hideFormRowsByLabel(["Order No:", "Fleet No:"]);
 
   walk(document.body);
